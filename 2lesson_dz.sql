@@ -1,0 +1,133 @@
+-- CREATE TABLE employees (
+--  id SERIAL PRIMARY KEY,
+--  full_name VARCHAR(100) NOT NULL,
+--  position VARCHAR(100) NOT NULL,
+--  department VARCHAR(100) NOT NULL,
+--  city VARCHAR(100) NOT NULL,
+--  salary INTEGER NOT NULL,
+--  age INTEGER NOT NULL,
+--  experience_years INTEGER NOT NULL,
+--  is_active BOOLEAN DEFAULT true
+-- );
+
+-- INSERT INTO employees
+-- (full_name, position, department, city, salary, age, experience_years, is_active)
+-- VALUES
+-- ('Aruzhan Sadykova', 'Frontend Developer', 'IT', 'Almaty', 450000, 24, 2, true),
+-- ('Dias Omarov', 'Backend Developer', 'IT', 'Astana', 550000, 27, 4, true),
+-- ('Madi Zhetibergen', 'Fullstack Developer', 'IT', 'Almaty', 700000, 28, 5, true),
+-- ('Amina Tulegenova', 'HR Manager', 'HR', 'Almaty', 350000, 30, 6, true),
+-- ('Nursultan Karimov', 'Recruiter', 'HR', 'Shymkent', 280000, 25, 2, true),
+-- ('Dana Mukasheva', 'Accountant', 'Finance', 'Astana', 400000, 35, 9, true),
+-- ('Aliya Serikova', 'Financial Analyst', 'Finance', 'Almaty', 600000, 32, 7, true),
+-- ('Timur Akhmetov', 'Sales Manager', 'Sales', 'Almaty', 300000, 26, 3, true),
+-- ('Rauan Iskakov', 'Sales Lead', 'Sales', 'Astana', 500000, 31, 6, true),
+-- ('Madina Ermekova', 'Marketing Specialist', 'Marketing', 'Almaty', 320000, 23, 1, true),
+-- ('Alisher Nurbekov', 'SMM Manager', 'Marketing', 'Shymkent', 270000, 22, 1, true),
+-- ('Zhanar Kairatkyzy', 'Project Manager', 'Management', 'Astana', 650000, 34, 8, true),
+-- ('Erlan Bektasov', 'CEO', 'Management', 'Almaty', 1200000, 40, 15, true),
+-- ('Sanzhar Ilyasov', 'QA Engineer', 'IT', 'Almaty', 380000, 24, 2, true),
+-- ('Kamila Nurpeisova', 'UI/UX Designer', 'Design', 'Almaty', 420000, 26, 3, true),
+-- ('Azamat Tolegen', 'Graphic Designer', 'Design', 'Astana', 300000, 25, 2, true),
+-- ('Yernar Kudaibergen', 'Office Manager', 'Administration', 'Almaty', 250000, 29, 4, true),
+-- ('Saltanat Rakhimova', 'Lawyer', 'Legal', 'Astana', 580000, 33, 8, true),
+-- ('Arman Zhaksylyk', 'Security Specialist', 'Security', 'Almaty', 260000, 38, 10, true),
+-- ('Miras Kenzhebek', 'Intern Developer', 'IT', 'Almaty', 150000, 20, 0, true),
+-- ('Diana Akhmetova', 'Business Analyst', 'Analytics', 'Astana', 520000, 29, 5, true),
+-- ('Bekzat Saparov', 'Data Analyst', 'Analytics', 'Almaty', 480000, 27, 4, true),
+-- ('Aigerim Ussenova', 'Customer Support', 'Support', 'Shymkent', 240000, 24, 2, true),
+-- ('Yeldos Maratuly', 'Support Lead', 'Support', 'Almaty', 390000, 30, 5, true),
+-- ('Karina Ospanova', 'Product Manager', 'Product', 'Astana', 750000, 31, 7, true);
+
+-- 1. Создать таблицу employees.
+-- 2. Добавить минимум 20 сотрудников.
+-- 3. Вывести всех сотрудников.
+-- SELECT * FROM employees
+-- 4. Найти сотрудников из отдела IT.
+-- SELECT * FROM employees
+-- WHERE department='IT'
+-- 5. Найти сотрудников из города Almaty.
+-- SELECT * FROM employees
+-- WHERE city='Almaty'
+-- 6. Найти сотрудников с зарплатой больше 500000.
+-- SELECT * FROM employees
+-- WHERE salary>=500000
+-- 7. Найти сотрудников с опытом от 2 до 6 лет.
+-- SELECT * FROM employees
+-- WHERE experience_years BETWEEN 2 AND 6
+-- 8. Найти всех менеджеров через LIKE.
+-- SELECT * FROM employees
+-- WHERE position LIKE '%Manager%'
+-- 9. Найти сотрудников из отделов IT, HR, Finance через IN.
+-- SELECT * FROM employees
+-- WHERE department IN ('IT', 'HR', 'Finance')
+-- 10. Отсортировать сотрудников по зарплате.
+-- SELECT * FROM employees
+-- ORDER BY salary DESC
+-- 11. Вывести топ-5 сотрудников по зарплате.
+-- SELECT *
+-- FROM employees
+-- ORDER BY salary DESC
+-- LIMIT 5;
+-- 12. Обновить зарплату одному сотруднику.
+-- UPDATE employees
+-- SET salary = 200000
+-- WHERE full_name = 'Miras Kenzhebek';
+-- 13. Обновить должность одному сотруднику.
+-- UPDATE employees
+-- SET position = 'Senior Frontend Developer'
+-- WHERE full_name = 'Aruzhan Sadykova';
+-- 14. Всем сотрудникам одного отдела поднять зарплату.
+-- UPDATE employees
+-- SET salary = salary * 1.10
+-- WHERE department = 'IT';
+-- 15. Одного сотрудника сделать неактивным.
+-- UPDATE employees
+-- SET is_active = false
+-- WHERE full_name = 'Arman Zhaksylyk';
+-- 16. Вывести всех активных сотрудников.
+-- SELECT *
+-- FROM employees
+-- WHERE is_active = true;
+-- 17. Посчитать всех сотрудников.
+-- SELECT COUNT(*) AS total_employees
+-- FROM employees;
+-- 18. Посчитать среднюю зарплату.
+-- SELECT AVG(salary) AS average_salary
+-- FROM employees;
+-- 19. Посчитать сумму всех зарплат.
+-- SELECT SUM(salary) AS total_salary
+-- FROM employees;
+-- 20. Найти минимальную и максимальную зарплату.
+-- SELECT
+-- MIN(salary) AS min_salary,
+-- MAX(salary) AS max_salary
+-- FROM employees;
+-- SQL Employees DB - UPDATE, DELETE, GROUP BY
+-- 21. Посчитать количество сотрудников по отделам.
+-- SELECT department,
+-- COUNT(*) AS employee_count
+-- FROM employees
+-- GROUP BY department;
+-- 22. Найти среднюю зарплату по отделам.
+-- SELECT department,
+-- AVG(salary) AS average_salary
+-- FROM employees
+-- GROUP BY department;
+-- 23. Найти сумму зарплат по отделам.
+-- SELECT department,
+-- SUM(salary) AS total_salary
+-- FROM employees
+-- GROUP BY department;
+-- 24. Найти отделы, где больше 2 сотрудников.
+-- SELECT department,
+-- COUNT(*) AS employee_count
+-- FROM employees
+-- GROUP BY department
+-- HAVING COUNT(*) > 2;
+-- 25. Найти отделы, где средняя зарплата больше 500000
+-- SELECT department,
+-- AVG(salary) AS average_salary
+-- FROM employees
+-- GROUP BY department
+-- HAVING AVG(salary) > 500000;
